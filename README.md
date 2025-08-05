@@ -2,6 +2,10 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lakshraina2-ai-resume-scanner-app-pbsmwu.streamlit.app/)
 
+**Check out the live, interactive application hosted on Streamlit Cloud:**
+
+### 👉 [https://lakshraina2-ai-resume-scanner-app-pbsmwu.streamlit.app/](https://lakshraina2-ai-resume-scanner-app-pbsmwu.streamlit.app/)
+
 ## 🎯 Overview
 
 The AI-Powered Resume Scanner is a comprehensive web application that uses Natural Language Processing (NLP) and machine learning techniques to analyze resumes, score them against job descriptions, and provide intelligent insights for both job seekers and recruiters.
