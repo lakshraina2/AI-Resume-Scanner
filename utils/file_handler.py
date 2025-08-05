@@ -3,7 +3,7 @@ import streamlit as st
 import PyPDF2
 import pdfplumber
 from docx import Document
-import textract
+# import textract  # Removed to avoid dependency conflicts
 from pathlib import Path
 import config
 
@@ -81,27 +81,23 @@ class FileHandler:
         return text.strip()
     
     def extract_text_from_doc(self, doc_file):
-        """Extract text from DOC file using textract"""
-        text = ""
+        """Extract text from DOC file (legacy Word format)"""
+        # Note: DOC files require specialized libraries like textract or python-docx2txt
+        # For now, we'll show a helpful message to the user
+        st.warning("⚠️ Legacy DOC files are not fully supported. Please convert to DOCX format for better results.")
         
+        # Try to extract some basic text using a simple approach
+        text = ""
         try:
-            # Save uploaded file temporarily
-            temp_file_path = f"temp_{doc_file.name}"
-            with open(temp_file_path, "wb") as f:
-                f.write(doc_file.getbuffer())
-            
-            # Extract text using textract
-            text = textract.process(temp_file_path).decode('utf-8')
-            
-            # Clean up temporary file
-            os.remove(temp_file_path)
-            
+            # Read raw bytes and try to extract readable text
+            content = doc_file.read()
+            # This is a very basic approach - won't work well for complex DOC files
+            text = content.decode('utf-8', errors='ignore')
+            # Clean up non-printable characters
+            text = ''.join(char for char in text if char.isprintable() or char.isspace())
         except Exception as e:
-            st.error(f"Error extracting text from DOC: {str(e)}")
-            # Clean up temporary file if it exists
-            temp_file_path = f"temp_{doc_file.name}"
-            if os.path.exists(temp_file_path):
-                os.remove(temp_file_path)
+            st.error(f"Error processing DOC file: {str(e)}")
+            st.info("💡 Tip: Convert your DOC file to DOCX format for better text extraction.")
         
         return text.strip()
     
