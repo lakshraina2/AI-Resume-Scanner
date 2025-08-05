@@ -1,3 +1,10 @@
+import nltk
+
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
+
 import streamlit as st
 import pandas as pd
 import numpy as np
