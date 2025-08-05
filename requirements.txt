@@ -1,0 +1,46 @@
+# AI-Powered Resume Scanner Dependencies
+
+# Core Dependencies
+streamlit==1.47.1
+pandas==2.3.1
+numpy==2.2.6
+
+# NLP and Text Processing
+nltk==3.9.1
+spacy==3.8.7
+wordcloud==1.9.4
+
+# Machine Learning and Similarity
+scikit-learn==1.7.1
+scipy==1.15.3
+
+# PDF and Document Processing
+PyPDF2==3.0.1
+pdfplumber==0.11.7
+python-docx==1.2.0
+textract==1.6.5
+
+# Resume Parsing Libraries
+pyresparser==1.0.6
+
+# Visualization Libraries
+plotly==6.2.0
+matplotlib==3.10.5
+seaborn==0.13.2
+
+# Additional Utilities
+requests==2.32.4
+regex==2025.7.34
+
+# spaCy English Model (install separately with: python -m spacy download en_core_web_sm)
+# en_core_web_sm>=3.8.0
+
+# Note: The following packages are part of Python standard library:
+# - sqlite3 (built-in)
+# - pathlib (built-in)
+# - io (built-in)
+# - datetime (built-in)
+# - tempfile (built-in)
+# - os (built-in)
+# - warnings (built-in)
+# - re (built-in)
