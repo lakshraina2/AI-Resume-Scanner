@@ -314,20 +314,21 @@ class ScoringEngine:
         suggestions = []
         
         # Check for quantifiable achievements
-        if not any(char.isdigit() for char in resume_text):
+        if resume_text and not any(char.isdigit() for char in resume_text):
             suggestions.append("📊 **Add Numbers**: Include metrics, percentages, or quantities to showcase impact")
         
         # Check for action verbs
-        action_verbs = ['achieved', 'developed', 'managed', 'led', 'created', 'improved', 'increased']
-        if not any(verb in resume_text.lower() for verb in action_verbs):
+        action_verbs = ['led', 'managed', 'developed', 'created', 'implemented', 'improved', 'increased', 'achieved', 'delivered', 'organized']
+        if resume_text and not any(verb in resume_text.lower() for verb in action_verbs):
             suggestions.append("⚡ **Use Action Verbs**: Start bullet points with strong action verbs")
         
         # Check resume length
-        word_count = len(resume_text.split())
-        if word_count < 200:
-            suggestions.append("📝 **Expand Content**: Add more details about your experience and achievements")
-        elif word_count > 1000:
-            suggestions.append("✂️ **Concise Writing**: Consider reducing content to focus on most relevant information")
+        if resume_text:
+            word_count = len(resume_text.split())
+            if word_count < 200:
+                suggestions.append("📝 **Expand Content**: Add more details about your experience and achievements")
+            elif word_count > 1000:
+                suggestions.append("✂️ **Concise Writing**: Consider reducing content to focus on most relevant information")
         
         # Check for contact information
         if not parsed_resume.get('email'):
